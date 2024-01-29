@@ -8,20 +8,20 @@ formdata.onsubmit = function (e) {
     }
 
     let listItem = document.createElement('li');
-    listItem.innerHTML = `<input type="checkbox"> ${data.list} </br>`;
+    listItem.innerHTML = `<input type="checkbox"> ${data.list} `;
     listItem.classList.add("chek")
     document.querySelector("ul").appendChild(listItem);
-
-    if (listItem.querySelector('input[type="checkbox"]').checked) {
-        listItem.classList.add("checkd");
-        listItem.classList.remove("chek");
-
-    } else {
-        listItem.classList.remove("checkd");
-        listItem.classList.add("chek");   
-     }
-
-
+    console.log(listItem)
+    let x = listItem.querySelector('input[type="checkbox"]');
+    x.onclick = function() {
+        if (x.checked) {
+            listItem.classList.add("checkd");
+            listItem.classList.remove("chek");
+        } else {
+            listItem.classList.remove("checkd");
+            listItem.classList.add("chek");
+        }
+    };
 
 }
 
